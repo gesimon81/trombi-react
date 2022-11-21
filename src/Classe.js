@@ -3,30 +3,30 @@ import ComponentCard from "./ComponentCard";
 
 //utilisation de hook pour gérer les états
 
-function Classe({ students, setStudents, setSelectedUserId, removeStudent }) {
-  const setPersonPresence = (nameParam) => {
-    const newStudents = students.map((student) => {
-      if (student.name === nameParam) {
-        return { ...student, present: !student.present };
+function Classe({ users, setUsers, setSelectedUserId, removeUser }) {
+  const setUserPresence = (nameParam) => {
+    const newUsers = users.map((user) => {
+      if (user.name === nameParam) {
+        return { ...user, present: !user.present };
       }
 
-      return student;
+      return user;
     });
 
-    setStudents(newStudents);
+    setUsers(newUsers);
   };
 
   //Affichage
-  return students.map((person) => {
+  return users.map((user) => {
     return (
       <ComponentCard
-        key={person.id}
-        person={person}
-        setPersonPresence={(name) => setPersonPresence(name)}
+        key={user.id}
+        user={user}
+        setUserPresence={(name) => setUserPresence(name)}
         onClick={() => {
-          setSelectedUserId(person.id);
+          setSelectedUserId(user.id);
         }}
-        removeStudent={() => removeStudent(person.id)}
+        removeUser={() => removeUser(user.id)}
       />
     );
   });

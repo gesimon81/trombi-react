@@ -11,11 +11,11 @@ import "./App.css";
 import listeUsers from "./listeUsers.json";
 
 const useListUsers = () => {
-  const [students, setStudents] = useLocalStorage(
+  const [users, setUsers] = useLocalStorage(
     "trombi_users_geraudapp",
     listeUsers.users
   );
-  return { students, setStudents };
+  return { users, setUsers };
 
   //return { listeUsers };
 };
