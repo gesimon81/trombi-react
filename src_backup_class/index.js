@@ -8,22 +8,16 @@ import AppContext from "./AppContext";
 import Modal from "./Modal";
 import Classe from "./Classe";
 import UserForm from "./UserForm";
-import MyApp from "./MyApp";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  /*<React.StrictMode>
+  <React.StrictMode>
     <AppContext>
       <UserForm />
       <Classe />
       <Modal />
     </AppContext>
-  </React.StrictMode>*/
-  <AppContext>
-    <MyApp />
-    <UserForm />
-    <Classe />
-  </AppContext>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
