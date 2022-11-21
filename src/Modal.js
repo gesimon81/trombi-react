@@ -1,7 +1,5 @@
-import React, { useState, useMemo, useContext } from "react";
-import logo from "./logo.svg";
+import React, { useContext } from "react";
 import "./App.css";
-import PropTypes, { object } from "prop-types";
 import { UserContext } from "./AppContext";
 
 function Modal() {
