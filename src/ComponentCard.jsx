@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-function ComponentCard({ onClick, person, setPersonPresence }) {
+function ComponentCard({ onClick, person, setPersonPresence, removeStudent }) {
   return (
     <div>
       <p onClick={() => onClick({ name: this.props.name })}>{person.name}</p>
@@ -9,6 +9,7 @@ function ComponentCard({ onClick, person, setPersonPresence }) {
       <button onClick={() => setPersonPresence(person.name)}>
         Change presence
       </button>
+      <button onClick={() => removeStudent(person.id)}>Delete user</button>
       <button onClick={() => onClick()}>select</button>
     </div>
   );

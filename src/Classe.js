@@ -3,7 +3,7 @@ import ComponentCard from "./ComponentCard";
 
 //utilisation de hook pour gérer les états
 
-function Classe({ students, setStudents, setSelectedUserId }) {
+function Classe({ students, setStudents, setSelectedUserId, removeStudent }) {
   const setPersonPresence = (nameParam) => {
     const newStudents = students.map((student) => {
       if (student.name === nameParam) {
@@ -26,6 +26,7 @@ function Classe({ students, setStudents, setSelectedUserId }) {
         onClick={() => {
           setSelectedUserId(person.id);
         }}
+        removeStudent={() => removeStudent(person.id)}
       />
     );
   });

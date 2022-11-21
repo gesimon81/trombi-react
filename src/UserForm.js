@@ -1,18 +1,18 @@
 import React from "react";
 
-function UserForm({ addStudent }) {
+function UserForm({ addUser }) {
   //takes the change event as argument
   //target is the field that fired the event
   function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); //évite le Post et rechargement de la page
     const userName = event.target.first_name.value;
-    addStudent(userName);
+    addUser(userName);
     event.target.reset();
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <input placeholder="First name" name="first_name" required/>
+      <input placeholder="First name" name="first_name" required />
       <button type="submit">add user</button>
     </form>
   );

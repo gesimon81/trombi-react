@@ -9,13 +9,20 @@ function App() {
   const [selectedUserId, setSelectedUserId] = useState(null);
 
   function addStudent(name) {
-    setStudents((prev) => [{ name, id: Math.random() }, ...prev]);
+    setStudents((prevState) => [{ name, id: Math.random() }, ...prevState]);
   }
 
   function removeStudent(id) {
-    //todo
+    setStudents((prev) => prev.filter((s) => s.id !== id));
+
+    /*const personIndex = students.findIndex((student) => student.id === id);
+
+    removeItem(personIndex);
+    const removeItem = (index) => {
+      setStudents([...students.slice(0, index), ...students.slice(index + 1)]);
+    };*/
   }
-  
+
   const selectedUser =
     selectedUserId && students.find(({ id }) => id === selectedUserId);
   return (
@@ -26,6 +33,7 @@ function App() {
         students={students}
         setSelectedUserId={setSelectedUserId}
         setStudents={setStudents}
+        removeStudent={removeStudent}
       />
     </>
   );
