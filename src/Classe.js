@@ -20,6 +20,7 @@ function Classe({ students, setStudents, setSelectedUserId }) {
   return students.map((person) => {
     return (
       <ComponentCard
+        key={person.id}
         person={person}
         setPersonPresence={(name) => setPersonPresence(name)}
         onClick={() => {
