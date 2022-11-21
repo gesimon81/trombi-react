@@ -1,42 +1,19 @@
 import React from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
 
-function UserForm() {
+function UserForm({ addUser }) {
   //takes the change event as argument
   //target is the field that fired the event
-  function handleInput(source) {
-    console.log("clicked", document.getElementById("firstNameInput").value);
+  function handleSubmit(event) {
+    event.preventDefault(); //évite le Post et rechargement de la page
+    const userName = event.target.first_name.value;
+    addUser(userName);
+    event.target.reset();
   }
 
-  /* return (
-    <div>
-      <h4>Create an Event:</h4>
-      <form>
-        <input
-          type="text"
-          name="name"
-          id="nameInput"
-          placeholder="name"
-          onChange={handleInput}
-        />
-        <button type="submit">Create Event</button>
-      </form>
-    </div>
-  );*/
-
-  const { register, handleSubmit } = useForm();
-  const [data, setData] = useState("");
-
   return (
-    <form onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
-      <input
-        {...register("firstName")}
-        id="firstNameInput"
-        placeholder="First name"
-      />
-
-      <input type="submit" onClick={handleInput(this)} />
+    <form onSubmit={handleSubmit}>
+      <input placeholder="First name" name="first_name" required />
+      <button type="submit">add user</button>
     </form>
   );
 }
