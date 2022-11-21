@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Classe from "./Classe";
+import useListUsers from "./ComponentHook";
+import UserForm from "./UserForm";
 
 function App() {
+  const { students, setStudents } = useListUsers();
+  const [selectedUserId, setSelectedUserId] = useState(null);
+
+  function addStudent(name) {
+    setStudents((prev) => [{ name, id: Math.random() }, ...prev]);
+  }
+
+  const selectedUser =
+    selectedUserId && students.find(({ id }) => id === selectedUserId);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {selectedUser && <p>{selectedUser.name}</p>}
+      <UserForm addStudent={addStudent}></UserForm>
+      <Classe
+        students={students}
+        setSelectedUserId={setSelectedUserId}
+        setStudents={setStudents}
+      />
+    </>
   );
 }
 

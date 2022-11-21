@@ -1,28 +1,17 @@
 import React from "react";
 import "./App.css";
-import PropTypes from "prop-types";
 
-class ComponentCard extends React.Component {
-  render() {
-    return (
-      <div>
-        <p onClick={() => this.props.onClick({ name: this.props.name })}>
-          {this.props.name}
-        </p>
-        <p>{this.props.present ? "Il est present" : "est non present"}</p>
-        <button onClick={() => this.props.setPersonPresence(this.props.name)}>
-          Change presence
-        </button>
-      </div>
-    );
-  }
+function ComponentCard({ onClick, person, setPersonPresence }) {
+  return (
+    <div>
+      <p onClick={() => onClick({ name: this.props.name })}>{person.name}</p>
+      <p>{person.present ? "Il est present" : "est non present"}</p>
+      <button onClick={() => setPersonPresence(person.name)}>
+        Change presence
+      </button>
+      <button onClick={() => onClick()}>select</button>
+    </div>
+  );
 }
-
-ComponentCard.propTypes = {
-  name: PropTypes.string,
-  present: PropTypes.bool,
-  setPersonPresence: PropTypes.func,
-  onClick: PropTypes.func,
-};
 
 export default ComponentCard;

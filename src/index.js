@@ -1,14 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import ComponentCard from "./ComponentCard";
-import AppContext from "./AppContext";
-import Modal from "./Modal";
-import Classe from "./Classe";
-import UserForm from "./UserForm";
-import MyApp from "./MyApp";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,11 +13,9 @@ root.render(
       <Modal />
     </AppContext>
   </React.StrictMode>*/
-  <AppContext>
-    <MyApp />
-    <UserForm />
-    <Classe />
-  </AppContext>
+  <>
+    <App />
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
