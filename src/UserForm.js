@@ -12,7 +12,7 @@ function UserForm({ addStudent }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input placeholder="First name" name="first_name" />
+      <input placeholder="First name" name="first_name" required/>
       <button type="submit">add user</button>
     </form>
   );

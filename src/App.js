@@ -12,6 +12,10 @@ function App() {
     setStudents((prev) => [{ name, id: Math.random() }, ...prev]);
   }
 
+  function removeStudent(id) {
+    //todo
+  }
+  
   const selectedUser =
     selectedUserId && students.find(({ id }) => id === selectedUserId);
   return (

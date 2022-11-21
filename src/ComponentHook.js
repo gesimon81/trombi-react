@@ -6,12 +6,15 @@
 
 //Ressource https://jsonplaceholder.typicode.com
 
-import { useState } from "react";
+import useLocalStorage from "./hooks/useLocalStorage";
 import "./App.css";
 import listeUsers from "./listeUsers.json";
 
 const useListUsers = () => {
-  const [students, setStudents] = useState(listeUsers.users);
+  const [students, setStudents] = useLocalStorage(
+    "trombi_users_geraudapp",
+    listeUsers.users
+  );
   return { students, setStudents };
 
   //return { listeUsers };
