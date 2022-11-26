@@ -1,28 +1,39 @@
-import React, { useState, useMemo, useContext } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import PropTypes, { object } from "prop-types";
-import { UserContext } from "./AppContext";
+import React from "react";
+import Modal from "react-modal";
 
-function Modal() {
-  //if  de contexte null = return null
-  //else return modal
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
-  const userContext = useContext(UserContext);
-  console.log(userContext);
+// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement("#root");
 
-  if (!userContext.personSelected) return null;
-
+export default function ModalComponent({
+  children,
+  openModal,
+  afterOpenModal,
+  closeModal,
+  modalIsOpen,
+}) {
   return (
-    <div id="myModal" className="modal">
-      <div className="modal-content">
-        <span className="close" onClick={userContext.removePersonSelected}>
-          &times;
-        </span>
-        <p>{userContext.personSelected.name}</p>
-      </div>
+    <div>
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="add user modal"
+      >
+        <button onClick={closeModal}>close</button>
+        {children}
+      </Modal>
     </div>
   );
 }
-
-export default Modal;

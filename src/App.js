@@ -2,33 +2,67 @@ import { useState } from "react";
 import "./App.css";
 import Classe from "./Classe";
 import useListUsers from "./ComponentHook";
+import ModalComponent from "./Modal";
 import UserForm from "./UserForm";
+import React from "react";
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function App() {
   const { users, setUsers } = useListUsers();
   const [selectedUserId, setSelectedUserId] = useState(null);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {}
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   function addUser(name) {
-    setUsers((prevState) => [{ name, id: Math.random() }, ...prevState]);
+    setUsers((prevState) => [
+      {
+        name,
+        id: Math.random(),
+        img: `https://randomuser.me/api/portraits/${
+          getRandomInt(1, 2) % 2 === 0 ? "men" : "women"
+        }/${getRandomInt(1, 100)}.jpg`,
+      },
+      ...prevState,
+    ]);
+    setIsOpen(false);
   }
 
   function removeUser(id) {
     setUsers((prev) => prev.filter((s) => s.id !== id));
-
-    /*const personIndex = users.findIndex((user) => user.id === id);
-
-    removeItem(personIndex);
-    const removeItem = (index) => {
-      setUsers([...users.slice(0, index), ...users.slice(index + 1)]);
-    };*/
   }
 
   const selectedUser =
     selectedUserId && users.find(({ id }) => id === selectedUserId);
+
   return (
     <>
-      {selectedUser && <p>{selectedUser.name}</p>}
-      <UserForm addUser={addUser}></UserForm>
+      <div style={{ textAlign: "center" }}>
+        <button onClick={openModal}>Add user</button>
+        {selectedUser && <p>{selectedUser.name} est sélectionné</p>}
+        {users.filter(({ present }) => present)?.length} utilisateurs présents
+        sur {users.length}
+      </div>
+      <ModalComponent
+        closeModal={closeModal}
+        modalIsOpen={modalIsOpen}
+        openModal={openModal}
+        afterOpenModal={afterOpenModal}
+      >
+        <UserForm addUser={addUser}></UserForm>
+      </ModalComponent>
       <Classe
         users={users}
         setSelectedUserId={setSelectedUserId}

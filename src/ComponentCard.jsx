@@ -3,14 +3,29 @@ import "./App.css";
 
 function ComponentCard({ onClick, user, setUserPresence, removeUser }) {
   return (
-    <div>
-      <p onClick={() => onClick({ name: this.props.name })}>{user.name}</p>
-      <p>{user.present ? "Il est present" : "est non present"}</p>
-      <button onClick={() => setUserPresence(user.name)}>
-        Change presence
-      </button>
-      <button onClick={() => removeUser(user.id)}>Delete user</button>
-      <button onClick={() => onClick()}>select</button>
+    <div
+      style={{
+        display: "flex",
+        gap: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        border: "2px solid",
+        width: 400,
+      }}
+    >
+      <div>
+        <p>
+          {user.name} {user.present ? "est present" : "est non present"}
+        </p>
+        <button onClick={() => setUserPresence(user.name)}>
+          Change presence
+        </button>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <button onClick={() => removeUser(user.id)}>Delete user</button>
+        <button onClick={() => onClick()}>select</button>
+        <img alt="user" src={user.img}></img>
+      </div>
     </div>
   );
 }

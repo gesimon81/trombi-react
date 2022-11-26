@@ -1,9 +1,12 @@
 import React from "react";
 import ComponentCard from "./ComponentCard";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 //utilisation de hook pour gérer les états
 
 function Classe({ users, setUsers, setSelectedUserId, removeUser }) {
+  const [animationParent] = useAutoAnimate();
+
   const setUserPresence = (nameParam) => {
     const newUsers = users.map((user) => {
       if (user.name === nameParam) {
@@ -17,19 +20,33 @@ function Classe({ users, setUsers, setSelectedUserId, removeUser }) {
   };
 
   //Affichage
-  return users.map((user) => {
-    return (
-      <ComponentCard
-        key={user.id}
-        user={user}
-        setUserPresence={(name) => setUserPresence(name)}
-        onClick={() => {
-          setSelectedUserId(user.id);
-        }}
-        removeUser={() => removeUser(user.id)}
-      />
-    );
-  });
+  return (
+    <div
+      ref={animationParent}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: "wrap",
+        gap: 5,
+        padding: 15,
+      }}
+    >
+      {users.map((user) => {
+        return (
+          <ComponentCard
+            key={user.id}
+            user={user}
+            setUserPresence={(name) => setUserPresence(name)}
+            onClick={() => {
+              setSelectedUserId(user.id);
+            }}
+            removeUser={() => removeUser(user.id)}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 export default Classe;
