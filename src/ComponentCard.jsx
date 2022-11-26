@@ -17,7 +17,7 @@ function ComponentCard({ onClick, user, setUserPresence, removeUser }) {
         <p>
           {user.name} {user.present ? "est present" : "est non present"}
         </p>
-        <button onClick={() => setUserPresence(user.name)}>
+        <button onClick={() => setUserPresence(user.id)}>
           Change presence
         </button>
       </div>

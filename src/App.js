@@ -20,6 +20,12 @@ function App() {
     setIsOpen(true);
   }
 
+  function setAllPresent(arePresent) {
+    setUsers((userPrev) =>
+      userPrev.map((u) => ({ ...u, present: arePresent }))
+    );
+  }
+
   function afterOpenModal() {}
 
   function closeModal() {
@@ -27,11 +33,10 @@ function App() {
   }
 
   function addUser(name) {
-    
-    let imageId = getRandomInt(1, 100)
-    if (name === "mael lhoutelier") imageId = 45 ;
-    if (name === "geraud d'arabie") imageId = 10 ;
-    if (name === "adre les deux poings") imageId = 20 ;
+    let imageId = getRandomInt(1, 100);
+    if (name === "mael lhoutelier") imageId = 45;
+    if (name === "geraud d'arabie") imageId = 10;
+    if (name === "adre les deux poings") imageId = 20;
 
     setUsers((prevState) => [
       {
@@ -57,6 +62,8 @@ function App() {
     <>
       <div style={{ textAlign: "center" }}>
         <button onClick={openModal}>Add user</button>
+        <button onClick={() => setAllPresent(true)}>Tout le monde présent</button>
+        <button onClick={() => setAllPresent(false)}>Pas un FIL qui dépasse</button>
         {selectedUser && <p>{selectedUser.name} est sélectionné</p>}
         {users.filter(({ present }) => present)?.length} utilisateurs présents
         sur {users.length}

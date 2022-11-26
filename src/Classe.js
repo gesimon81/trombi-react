@@ -7,9 +7,9 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 function Classe({ users, setUsers, setSelectedUserId, removeUser }) {
   const [animationParent] = useAutoAnimate();
 
-  const setUserPresence = (nameParam) => {
+  const setUserPresence = (idParam) => {
     const newUsers = users.map((user) => {
-      if (user.name === nameParam) {
+      if (user.id === idParam) {
         return { ...user, present: !user.present };
       }
 
@@ -37,7 +37,7 @@ function Classe({ users, setUsers, setSelectedUserId, removeUser }) {
           <ComponentCard
             key={user.id}
             user={user}
-            setUserPresence={(name) => setUserPresence(name)}
+            setUserPresence={(id) => setUserPresence(id)}
             onClick={() => {
               setSelectedUserId(user.id);
             }}
