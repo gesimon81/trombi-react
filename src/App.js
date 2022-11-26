@@ -27,13 +27,14 @@ function App() {
   }
 
   function addUser(name) {
+    const imageId = name === "mael lhoutelier" ? 45 : getRandomInt(1, 100);
     setUsers((prevState) => [
       {
         name,
         id: Math.random(),
         img: `https://randomuser.me/api/portraits/${
           getRandomInt(1, 2) % 2 === 0 ? "men" : "women"
-        }/${getRandomInt(1, 100)}.jpg`,
+        }/${imageId}.jpg`,
       },
       ...prevState,
     ]);
