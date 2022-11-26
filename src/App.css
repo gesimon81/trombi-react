@@ -2,10 +2,18 @@
   text-align: center;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
 #root div {
     background: linear-gradient(#e66465, #9198e5);
     background-attachment:fixed;
-    height:100%;
     animation-name: clean;
     animation-duration: 5s;
     font-family: "Comic Sans MS";

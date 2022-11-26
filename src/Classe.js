@@ -26,10 +26,10 @@ function Classe({ users, setUsers, setSelectedUserId, removeUser }) {
       style={{
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
         flexWrap: "wrap",
         gap: 5,
-        padding: 15,
+        height: "100%",
+        padding: 5,
       }}
     >
       {users.map((user) => {

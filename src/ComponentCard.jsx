@@ -6,11 +6,13 @@ function ComponentCard({ onClick, user, setUserPresence, removeUser }) {
     <div
       style={{
         display: "flex",
-        gap: 10,
+        gap: 5,
         justifyContent: "center",
         alignItems: "center",
         border: "2px solid",
         width: 400,
+        height: 200,
+        overflow: "auto"
       }}
     >
       <div>
