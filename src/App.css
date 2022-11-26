@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-div {
+#root div {
     background: linear-gradient(#e66465, #9198e5);
     background-attachment:fixed;
     height:100%;
