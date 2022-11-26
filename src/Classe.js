@@ -19,15 +19,17 @@ function Classe({ users, setUsers, setSelectedUserId, removeUser }) {
   //Affichage
   return users.map((user) => {
     return (
-      <ComponentCard
-        key={user.id}
-        user={user}
-        setUserPresence={(name) => setUserPresence(name)}
-        onClick={() => {
-          setSelectedUserId(user.id);
-        }}
-        removeUser={() => removeUser(user.id)}
-      />
+      <div class="trombi">
+        <ComponentCard
+          key={user.id}
+          user={user}
+          setUserPresence={(name) => setUserPresence(name)}
+          onClick={() => {
+            setSelectedUserId(user.id);
+          }}
+          removeUser={() => removeUser(user.id)}
+        />
+      </div>
     );
   });
 }
