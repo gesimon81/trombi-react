@@ -27,7 +27,12 @@ function App() {
   }
 
   function addUser(name) {
-    const imageId = name === "mael lhoutelier" ? 45 : getRandomInt(1, 100);
+    
+    let imageId = getRandomInt(1, 100)
+    if (name === "mael lhoutelier") imageId = 45 ;
+    if (name === "geraud d'arabie") imageId = 10 ;
+    if (name === "adre les deux poings") imageId = 20 ;
+
     setUsers((prevState) => [
       {
         name,

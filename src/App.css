@@ -2,6 +2,24 @@
   text-align: center;
 }
 
+div {
+    background: linear-gradient(#e66465, #9198e5);
+    background-attachment:fixed;
+    height:100%;
+    animation-name: clean;
+    animation-duration: 5s;
+    font-family: "Comic Sans MS";
+    font-size: 1.6rem;
+    color: yellow;
+    overflow: auto;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes clean {
+  from {filter: hue-rotate(0deg);}
+  to {filter: hue-rotate(359deg);}
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
