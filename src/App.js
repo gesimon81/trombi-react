@@ -34,9 +34,10 @@ function App() {
 
   function addUser(name) {
     let imageId = getRandomInt(1, 100);
-    if (name === "mael lhoutelier") imageId = 45;
+    if (name === "mael le fou") imageId = 45;
     if (name === "geraud d'arabie") imageId = 10;
     if (name === "adre les deux poings") imageId = 20;
+    if (name === "vincent l'animal") imageId = 15;
 
     setUsers((prevState) => [
       {
