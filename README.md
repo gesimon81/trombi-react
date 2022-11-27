@@ -1,3 +1,23 @@
+# Application React - Trombinoscope
+
+- Application réalisé par SIMON Géraud - IMT FILA3
+- UE Clients légers
+
+## Lancer le projet
+
+- Importer le projet depuis le github
+- npm install + npm start à la racine du projet
+
+## Caractéristiques du projet
+
+- Les données sont stockées en cache dans le navigateur. Cela permet donc d'alléger l'application dans le cadre de l'exercice sans nécessiter de BDD.
+
+  - Les données par défaut sont disponibles dans le fichier `listeUsers.json`
+  - Vous pouvez ajouter de nouveaux utilisateurs par le formulaire, mais elles ne seront pas disponibles en changeant de navigateurs
+  - Pour effacer les données enregistrées dans l'application et revenir à l'état par défaut, effacer le cache du navigateur lié à cette application ou utiliser différentes fenêtres de Navigation privée, qui ne stocke pas le cache entre les fenêtres
+
+- L'application est responsive sur la disposition des éléments et peut s'adapter à un écran de téléphone pour une évolution possible de l'application
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,5 +1,6 @@
 import React from "react";
 
+//Composant pour saisir les informations d'un nouvel utilisateur
 function UserForm({ addUser }) {
   //takes the change event as argument
   //target is the field that fired the event

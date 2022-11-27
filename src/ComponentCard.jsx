@@ -1,8 +1,10 @@
 import React from "react";
 import "./App.css";
 
+//Composant pour afficher un utilisateur
 function ComponentCard({ onClick, user, setUserPresence, removeUser }) {
   return (
+    //style pour avoir les éléments alignés
     <div
       style={{
         display: "flex",
@@ -12,7 +14,7 @@ function ComponentCard({ onClick, user, setUserPresence, removeUser }) {
         border: "2px solid",
         width: 400,
         height: 200,
-        overflow: "auto"
+        overflow: "auto",
       }}
     >
       <div>

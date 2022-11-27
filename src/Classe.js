@@ -4,9 +4,11 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 //utilisation de hook pour gérer les états
 
+//Regroupe les utilisateurs
 function Classe({ users, setUsers, setSelectedUserId, removeUser }) {
   const [animationParent] = useAutoAnimate();
 
+  //Définit l'état d'un utilisateur sur présent
   const setUserPresence = (idParam) => {
     const newUsers = users.map((user) => {
       if (user.id === idParam) {
@@ -19,8 +21,8 @@ function Classe({ users, setUsers, setSelectedUserId, removeUser }) {
     setUsers(newUsers);
   };
 
-  //Affichage
   return (
+    //Affichage avec animation
     <div
       ref={animationParent}
       style={{
