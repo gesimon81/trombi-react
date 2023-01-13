@@ -68,11 +68,11 @@ function App() {
   return (
     <>
       <div style={{ textAlign: "center" }}>
-        <button onClick={openModal}>Add user</button>
-        <button onClick={() => setAllPresent(true)}>
+        <button class="buttonAddUser" onClick={openModal}>Add user</button>
+        <button class="buttonAllUsersHere" onClick={() => setAllPresent(true)}>
           Tous les utilisateurs présents
         </button>
-        <button onClick={() => setAllPresent(false)}>
+        <button class="buttonAllUsersMissing" onClick={() => setAllPresent(false)}>
           Tous les utilisateurs absents
         </button>
       </div>

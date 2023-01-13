@@ -11,7 +11,7 @@ html, body, #root {
   height: 100%;
 }
 
-#root div {
+/*#root div {
     background: linear-gradient(#e66465, #9198e5);
     background-attachment:fixed;
     animation-name: clean;
@@ -26,7 +26,7 @@ html, body, #root {
 @keyframes clean {
   from {filter: hue-rotate(0deg);}
   to {filter: hue-rotate(359deg);}
-}
+}*/
 
 .App-logo {
   height: 40vmin;
@@ -62,3 +62,17 @@ html, body, #root {
     transform: rotate(360deg);
   }
 }
+
+
+/* Ajouts V1.1 */
+/*.buttonAddUser {
+
+}
+
+.buttonAllUsersHere {
+
+}
+
+.buttonAllUsersMissing {
+
+}*/
