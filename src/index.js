@@ -3,12 +3,23 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./react/reportWebVitals";
 import App from "./App";
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraBaseProvider, extendBaseTheme } from '@chakra-ui/react'
+import chakraTheme from '@chakra-ui/theme'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+//lib ChakraUI. Use of a lighted version to reduce size of the import on the app
+const { Button } = chakraTheme.components
+
+const theme = extendBaseTheme({
+  components: {
+    Button,
+  },
+})
+
 root.render(
   <>
-    <ChakraProvider><App /></ChakraProvider>
+    <ChakraBaseProvider theme={theme}><App /></ChakraBaseProvider>
     
   </>
 );

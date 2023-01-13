@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import {Button} from '@chakra-ui/react'
 
 //Composant pour afficher un utilisateur
 function ComponentCard({ onClick, user, setUserPresence, removeUser }) {
@@ -13,7 +14,7 @@ function ComponentCard({ onClick, user, setUserPresence, removeUser }) {
         alignItems: "center",
         border: "2px solid",
         width: 400,
-        height: 200,
+        height: 250,
         overflow: "auto",
       }}
     >
@@ -21,13 +22,13 @@ function ComponentCard({ onClick, user, setUserPresence, removeUser }) {
         <p>
           {user.name} {user.present ? "est present" : "est non present"}
         </p>
-        <button onClick={() => setUserPresence(user.id)}>
+        <Button colorScheme='teal' onClick={() => setUserPresence(user.id)}>
           Change presence
-        </button>
+        </Button>
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <button onClick={() => removeUser(user.id)}>Delete user</button>
-        <button onClick={() => onClick()}>select</button>
+        <Button colorScheme='red' onClick={() => removeUser(user.id)}>Delete user</Button>
+        <Button colorScheme='gray' onClick={() => onClick()}>select</Button>
         <img alt="user" src={user.img}></img>
       </div>
     </div>

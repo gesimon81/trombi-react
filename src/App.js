@@ -5,6 +5,7 @@ import useListUsers from "./ComponentHook";
 import ModalComponent from "./Modal";
 import UserForm from "./UserForm";
 import React from "react";
+import {Button} from '@chakra-ui/react'
 
 //Crée un nombre aléatoire pour intégrer les images avec les utilisateurs
 function getRandomInt(min, max) {
@@ -68,13 +69,13 @@ function App() {
   return (
     <>
       <div style={{ textAlign: "center" }}>
-        <button class="buttonAddUser" onClick={openModal}>Add user</button>
-        <button class="buttonAllUsersHere" onClick={() => setAllPresent(true)}>
+        <Button colorScheme='blue' onClick={openModal}>Add user</Button>
+        <Button colorScheme='teal' onClick={() => setAllPresent(true)}>
           Tous les utilisateurs présents
-        </button>
-        <button class="buttonAllUsersMissing" onClick={() => setAllPresent(false)}>
+        </Button>
+        <Button colorScheme='yellow' onClick={() => setAllPresent(false)}>
           Tous les utilisateurs absents
-        </button>
+        </Button>
       </div>
       <div style={{ textAlign: "center" }}>
         {selectedUser && <p>{selectedUser.name} est sélectionné</p>}
