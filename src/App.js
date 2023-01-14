@@ -5,7 +5,7 @@ import useListUsers from "./ComponentHook";
 import ModalComponent from "./Modal";
 import UserForm from "./UserForm";
 import React from "react";
-import {Button} from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 
 //Crée un nombre aléatoire pour intégrer les images avec les utilisateurs
 function getRandomInt(min, max) {
@@ -31,7 +31,7 @@ function App() {
     );
   }
 
-  function afterOpenModal() {}
+  function afterOpenModal() { }
 
   function closeModal() {
     setIsOpen(false);
@@ -49,9 +49,8 @@ function App() {
       {
         name,
         id: Math.random(),
-        img: `https://randomuser.me/api/portraits/${
-          getRandomInt(1, 2) % 2 === 0 ? "men" : "women"
-        }/${imageId}.jpg`,
+        img: `https://randomuser.me/api/portraits/${getRandomInt(1, 2) % 2 === 0 ? "men" : "women"
+          }/${imageId}.jpg`,
       },
       ...prevState,
     ]);
@@ -68,12 +67,16 @@ function App() {
 
   return (
     <>
-      <div style={{ textAlign: "center" }}>
+      <div style={{ display: "flex", justifyContent: "center", gap: 6 }}>
         <Button colorScheme='blue' onClick={openModal}>Add user</Button>
-        <Button colorScheme='teal' onClick={() => setAllPresent(true)}>
+        <Button colorScheme='teal'
+          disabled={users.every(u => u.present)}
+          onClick={() => setAllPresent(true)}>
           Tous les utilisateurs présents
         </Button>
-        <Button colorScheme='yellow' onClick={() => setAllPresent(false)}>
+        <Button colorScheme='yellow'
+          disabled={users.every(u => !u.present)}
+          onClick={() => setAllPresent(false)}>
           Tous les utilisateurs absents
         </Button>
       </div>
