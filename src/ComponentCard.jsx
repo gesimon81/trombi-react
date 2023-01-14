@@ -16,6 +16,7 @@ function ComponentCard({ onClick, user, setUserPresence, removeUser }) {
         width: 400,
         height: 250,
         overflow: "auto",
+        padding: 10,
       }}
     >
       <div>
