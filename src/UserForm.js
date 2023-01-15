@@ -1,4 +1,5 @@
 import React from "react";
+import {Button, Input} from '@chakra-ui/react'
 
 //Composant pour saisir les informations d'un nouvel utilisateur
 function UserForm({ addUser }) {
@@ -6,15 +7,15 @@ function UserForm({ addUser }) {
   //target is the field that fired the event
   function handleSubmit(event) {
     event.preventDefault(); //évite le Post et rechargement de la page
-    const userName = event.target.first_name.value;
+    const userName = event.target.nameInput.value;
     addUser(userName);
     event.target.reset();
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <input placeholder="First name" name="first_name" required />
-      <button type="submit">add user</button>
+      <input placeholder="Nom et prénom" name="nameInput" required />
+      <Button colorScheme='blue' type="submit">Ajouter un utilisateur</Button>
     </form>
   );
 }

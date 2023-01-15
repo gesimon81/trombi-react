@@ -68,7 +68,7 @@ function App() {
   return (
     <>
       <div style={{ display: "flex", justifyContent: "center", gap: 6 }}>
-        <Button colorScheme='blue' onClick={openModal}>Add user</Button>
+        <Button colorScheme='blue' onClick={openModal}>Ajouter un utilisateur</Button>
         <Button colorScheme='teal'
           disabled={users.every(u => u.present)}
           onClick={() => setAllPresent(true)}>

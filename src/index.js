@@ -9,11 +9,14 @@ import chakraTheme from '@chakra-ui/theme'
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 //lib ChakraUI. Use of a lighted version to reduce size of the import on the app
-const { Button } = chakraTheme.components
+const { Button, Card, CardBody, Input } = chakraTheme.components
 
 const theme = extendBaseTheme({
   components: {
     Button,
+    Card,
+    CardBody,
+    Input
   },
 })
 
